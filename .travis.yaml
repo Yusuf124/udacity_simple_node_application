@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+#pre-testing install
+install:
+  - echo "nothing to be installed"
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  - docker build -t simple-node .
+  - docker tag simple-node ypapy/simple-node:latest
+
+
