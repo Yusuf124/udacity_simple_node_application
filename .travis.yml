@@ -9,7 +9,7 @@ install:
   - echo "nothing to be installed"
 # Scripts to be run such as tests
 before_script:
-  - echo "no tests"
+  - echo "no tests to run"
 
 script:
   - docker --version # print the version for logging
