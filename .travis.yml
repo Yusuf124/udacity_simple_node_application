@@ -1,23 +1,9 @@
-language: node_js
-node_js:
-  - 13
+- docker build -t udagram-api-feed ./udagram-api-feed
+- docker build -t udagram-api-user ./udagram-api-user
+- docker build -t udagram-frontend ./udagram-frontend
+- docker build -t udagram-reverseproxy ./udagram-reverseproxy
 
-services:
-  - docker
-#pre-testing install
-install:
-  - echo "nothing to be installed"
-# Scripts to be run such as tests
-before_script:
-  - echo "no tests to run"
-
-script:
-  - docker --version # print the version for logging
-  - docker build -t simple-node .
-  - docker tag simple-node ypapy/simple-node:latest
-
-after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push ypapy/simple-node
-
-
+docker tag udagram-api-feed ypapy/udagram-api-feed:v1
+docker tag udagram-api-feed ypapy/udagram-api-user:v1
+docker tag udagram-api-feed ypapy/udagram-frontend:v1
+docker tag udagram-api-feed ypapy/udagram-reverseproxy:v1
