@@ -7,15 +7,16 @@ function getDate() {
 }
 
 async function main() {
-  while (true) {
+  
     try {
       console.log(getDate());
+      console.log("It's running my niggas!");
     } catch (e) {
       console.log(e);
     } finally {
       await sleep(5000);
     }
-  }
+  
 }
 
 main();
